@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { addTodo } from '../actions/index';
 
-const AddTodoComponent = ({ dispatch }) => {
+const AddTodoComponent = ({ dispatch, listId }) => {
     let input;
 
     return (
@@ -14,7 +14,7 @@ const AddTodoComponent = ({ dispatch }) => {
                         return;
                     }
 
-                    dispatch(addTodo(input.value))
+                    dispatch(addTodo(input.value, listId))
                     input.value = '';
                 }}
                 style={{

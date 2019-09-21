@@ -1,21 +1,13 @@
 import React from 'react';
 import './App.css';
-import AddTodoComponent from './components/AddTodoComponent';
 import VisibleTodoListContainer from './containers/VisibleTodoListContainer';
-import FooterComponent from './components/FooterComponent';
 
 const App = () => (
-  <div style={{
-    width: '100%',
-    height: '100vh',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
-  }}>
+  <div>
     <main>
-      <AddTodoComponent />
-      <VisibleTodoListContainer />
-      <FooterComponent /> 
+      <VisibleTodoListContainer listId={'1'} />
+      <VisibleTodoListContainer listId={'2'} />
+      <VisibleTodoListContainer listId={'3'} />
     </main>
   </div>
 ); 

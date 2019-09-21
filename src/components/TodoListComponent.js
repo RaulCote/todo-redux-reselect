@@ -1,23 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TodoComponent from './TodoComponent';
+import AddTodoComponent from './AddTodoComponent';
+import FooterComponent from './FooterComponent';
 
 const TodoListComponent = ({
     todos,
-    toggleTodo
+    toggleTodo,
+    listId
 }) => (
-    <ul>
-        {todos.map(todo => (
-            <TodoComponent 
-                key={todo.id}
-                {...todo}
-                onClick={
-                    () => toggleTodo(todo.id)
-                }
-            />
-        ))}
-    </ul>
+    <React.Fragment>
+        <h2>Todo List Number {listId}</h2>
+        <AddTodoComponent listId={listId} /> 
+        <ul>
+            {todos.map(todo => (
+                <TodoComponent 
+                    key={todo.id}
+                    {...todo}
+                    onClick={
+                        () => toggleTodo(todo.id, listId)
+                    }
+                />
+            ))}
+        </ul>
+        <FooterComponent listId={listId}/>
+    </React.Fragment>
 );
+
 
 TodoListComponent.propTypes = {
     todos: PropTypes.arrayOf(
